@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--Assembly information-->
+    <AssemblyName>LRK.FSharp</AssemblyName>
+    <Version>0.1.0</Version>
+
+    <!--Configuration-->
+    <TargetFramework>net6.0</TargetFramework>
+    <WarnOn>3390;$(WarnOn)</WarnOn>
+    <OutputType>Library</OutputType>
+    <Deterministic>true</Deterministic>
+    
+    <!--Building-->
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <!--Package Information-->
+    <RepositoryUrl>https://github.com/lennardrk/LRK.FSharp</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/lennardrk/LRK.FSharp</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>Lennardrk</Authors>
+    <Company>LRK. Labs</Company>
+    <RepositoryType>Git</RepositoryType>
+    <Description>A common library consisting of several datastructures and composable functions that are complaint with Category Theory.</Description>
+    <Copyright>Copyright © 2020-2022 LRK. Labs - lennardrk &lt;lennardrk@outlook.com&gt;</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Tailcalls>True</Tailcalls>
+  </PropertyGroup>
+
+  <!--Includes/excludes-->
+  <ItemGroup>
+    <Compile Include="UnitHelpers.fs" />
+    <Compile Include="Datastructures\Id.fs" />
+    <Compile Include="Datastructures\Pair.fs" />
+    <Compile Include="Datastructures\Option.fs" />
+    <Compile Include="Datastructures\Either.fs" />
+    <None Include="Datastructures\List.fs" />
+    <Compile Include="Functional\State.fs" />
+    <Compile Include="Functional\Process.fs" />
+    <Compile Include="Functional\Coroutine.fs" />
+    <None Include="Archive\OldCoroutine.fs" />
+  </ItemGroup>
+
+  <!--Dependencies-->
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="6.0.4" />
+  </ItemGroup>
+
+</Project>
